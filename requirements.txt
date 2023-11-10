@@ -1,0 +1,6 @@
+discord.py
+pynacl
+yt_dlp
+python-dotenv
+homeassistant-api
+pytest
