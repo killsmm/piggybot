@@ -24,7 +24,18 @@ class BookKeeper:
         c.execute('SELECT * FROM accounts WHERE username = ?', (username,))
         account = c.fetchone()
         conn.close()
-        return Account(account[0], account[1])
+        if account is not None:
+            return Account(account[0], account[1])
+        else:
+            return None
+    
+    def get_all_accounts(self):
+        conn = sqlite3.connect(self.db_name)
+        c = conn.cursor()
+        c.execute('SELECT username FROM accounts')
+        accounts = c.fetchall()
+        conn.close()
+        return [account[0] for account in accounts]
     
     def create_account(self, username, password):
         conn = sqlite3.connect(self.db_name)
@@ -59,7 +70,7 @@ class BookKeeper:
         conn = sqlite3.connect(self.db_name)
         c = conn.cursor()
         c.execute('UPDATE accounts SET balance = balance - ? WHERE username = ?', (amount, username))
-        c.execute('INSERT INTO transactions VALUES (?, ?, ?, ?)', (username, -amount, date, note))
+        c.execute('INSERT INTO transactions VALUES (?, ?, ?, ?)', (username, f'-{amount}', date, note))
         conn.commit()
         conn.close()
     

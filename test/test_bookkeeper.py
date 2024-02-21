@@ -18,6 +18,17 @@ def test_create_account(bookkeeper):
     assert account.password == 'password'
     bookkeeper.delete_account('test')
 
+def test_get_account(bookkeeper):
+    bookkeeper.create_account('test', 'password')
+    account = bookkeeper.get_account('test')
+    assert account.username == 'test'
+    assert account.password == 'password'
+    bookkeeper.delete_account('test')
+
+def test_get_account_none(bookkeeper):
+    account = bookkeeper.get_account('test')
+    assert account == None
+
 def test_delete_account(bookkeeper):
     bookkeeper.create_account('test', 'password')
     bookkeeper.delete_account('test')
