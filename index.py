@@ -32,9 +32,7 @@ except ValueError:
     print('the BOT_COLOR in .env is not a valid hex color')
     print('using default color ff0000')
     COLOR = 0xff0000
-# intents = discord.Intents.default()
-# intents.message_content = True
-# bot = commands.Bot(command_prefix=PREFIX, intents=intents)
+
 
 class YTbot(commands.Bot):
     def __init__(self):
