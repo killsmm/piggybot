@@ -93,6 +93,8 @@ class PiggyBot(commands.Bot):
             accounts = bot.bookkeeper.get_all_accounts()
             text = ''
             for account in accounts:
+                if account == 'admin':
+                    continue
                 balance = bot.bookkeeper.get_balance(account)
                 text += f'{account}: {balance}\n'
             await ctx.send(text)
