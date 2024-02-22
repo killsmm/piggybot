@@ -4,3 +4,6 @@ dl
 __pycache__
 .env
 *.db
+build
+dist
+.venv
