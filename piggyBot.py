@@ -9,6 +9,8 @@ ACCOUNTS = {
     'yiyi': '1234',
     'baba': '1234',
     'mama': '1234',
+    'yibank': '1234',
+    'shanbank': '1234',
 }
 
 class PiggyBot(commands.Bot):
