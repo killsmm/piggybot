@@ -1,6 +1,6 @@
 # Gnerate one file executable
 ```
-    pyinstaller main.spec
+    pyinstaller piggybot.spec
 ```
 
 # Deploy
